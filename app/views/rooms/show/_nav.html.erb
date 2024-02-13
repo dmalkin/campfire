@@ -1,0 +1,14 @@
+<% content_for :nav do %>
+  <%= account_logo_tag if Current.account.logo.attached? %>
+
+  <%= tag.span class: "btn btn--reversed btn--faux room--current" do %>
+    <span class="room__contents overflow-ellipsis"><%= room_display_name(room) %></span>
+  <% end %>
+
+  <%= link_to_edit_room(room) do %>
+    <%= image_tag "menu-dots-horizontal.svg", role: "presentation" %>
+    <span class="for-screen-reader">Room settings</span>
+  <% end %>
+
+  <%= render "rooms/involvements/bell", room: room %>
+<% end %>
